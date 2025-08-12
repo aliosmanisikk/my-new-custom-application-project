@@ -33,6 +33,12 @@ const config = {
       labelAllLocales: [],
       permissions: [PERMISSIONS.View],
     },
+    {
+      uriPath: 'carts',
+      defaultLabel: 'Carts',
+      labelAllLocales: [],
+      permissions: [PERMISSIONS.View],
+    },
   ],
 };
 

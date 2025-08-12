@@ -12499,3 +12499,34 @@ export type TFetchOrdersQuery = {
     }>;
   };
 };
+
+export type TFetchCartsQueryVariables = Exact<{
+  limit: Scalars['Int'];
+  offset: Scalars['Int'];
+  sort?: InputMaybe<Array<Scalars['String']> | Scalars['String']>;
+}>;
+
+export type TFetchCartsQuery = {
+  __typename?: 'Query';
+  carts: {
+    __typename?: 'CartQueryResult';
+    total: number;
+    count: number;
+    offset: number;
+    results: Array<{
+      __typename?: 'Cart';
+      id: string;
+      createdAt: string;
+      cartState: string;
+      shippingInfo?: {
+        __typename?: 'ShippingInfo';
+        shippingMethodName: string;
+      };
+      totalPrice: {
+        __typename?: 'BaseMoney';
+        centAmount: number;
+        currencyCode: string;
+      };
+    }>;
+  };
+};
