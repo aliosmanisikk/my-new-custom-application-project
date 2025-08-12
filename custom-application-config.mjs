@@ -12,8 +12,8 @@ const config = {
       initialProjectKey: 'io-white-label-development',
     },
     production: {
-      applicationId: 'TODO',
-      url: 'https://your_app_hostname.com',
+      applicationId: 'cmdylo1l0000qys01lie5k36w',
+      url: 'https://my-new-custom-application-project-beta.vercel.app/',
     },
   },
   oAuthScopes: {
