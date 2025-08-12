@@ -22,6 +22,7 @@ import messages from './messages';
 
 const columns = [
   { key: 'orderNumber', label: 'Order number' },
+  { key: 'cartId', label: 'Cart id' },
   { key: 'createdAt', label: 'Order date' },
   { key: 'price', label: 'Order value' },
   { key: 'paymentMethod', label: 'Payment method' },
@@ -79,6 +80,8 @@ const Orders = (props: TOrdersProps) => {
               switch (column.key) {
                 case 'orderNumber':
                   return item.orderNumber;
+                case 'cartId':
+                  return item.cart.id;
                 case 'price':
                   return `${item.totalPrice.centAmount} ${item.totalPrice.currencyCode}`;
                 case 'paymentMethod':

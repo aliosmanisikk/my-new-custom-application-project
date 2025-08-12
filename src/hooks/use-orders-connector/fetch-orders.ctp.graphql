@@ -11,6 +11,9 @@ query FetchOrders($limit: Int!, $offset: Int!, $sort: [String!]) {
         centAmount
         currencyCode
       }
+      cart {
+        id
+      }
       paymentInfo {
         payments {
           paymentMethodInfo {

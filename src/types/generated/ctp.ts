@@ -12485,6 +12485,9 @@ export type TFetchOrdersQuery = {
         centAmount: number;
         currencyCode: string;
       };
+      cart: {
+        id: string;
+      };
       paymentInfo?: {
         __typename?: 'PaymentInfo';
         payments: Array<{
