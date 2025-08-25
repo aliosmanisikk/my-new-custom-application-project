@@ -28,7 +28,7 @@ const CartDetails = (props: TCartDetailsProps) => {
               gridAutoColumns="1fr"
               gridTemplateColumns="repeat(2, 1fr)"
             >
-              <iframe  width="2240" height="2240" src={`https://io-whitelabel-testing.grandvision.io/cart?cartId=${params.id}`} title="Cart details"></iframe>
+              <iframe  width="1680" height="2240" src={`https://io-whitelabel-testing.grandvision.io/cart?cartId=${params.id}`} title="Cart details"></iframe>
             </Grid>
 
         </Spacings.Stack>
