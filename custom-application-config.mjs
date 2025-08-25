@@ -40,6 +40,13 @@ const config = {
       permissions: [PERMISSIONS.View],
     },
   ],
+  headers: {
+    csp: {
+      'connect-src': ['*'],
+      'frame-src': ['*'],
+      'script-src': ['*'],
+    },
+  },
 };
 
 export default config;

@@ -83,7 +83,7 @@ const Orders = (props: TOrdersProps) => {
                 case 'cartId':
                   return item.cart.id;
                 case 'price':
-                  return `${item.totalPrice.centAmount} ${item.totalPrice.currencyCode}`;
+                  return `${item.totalPrice.centAmount / 100} ${item.totalPrice.currencyCode}`;
                 case 'paymentMethod':
                   return item.paymentInfo?.payments?.[0]?.paymentMethodInfo?.method || '-';
                 case 'createdAt':

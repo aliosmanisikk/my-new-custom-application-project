@@ -1,6 +1,7 @@
 import { useIntl } from 'react-intl';
 import {
   Link as RouterLink,
+  Switch,
 } from 'react-router-dom';
 import {
   usePaginationState,
@@ -19,6 +20,7 @@ import type { TFetchCartsQuery } from '../../types/generated/ctp';
 import { useCartsFetcher } from '../../hooks/use-carts-connector';
 import { getErrorMessage } from '../../helpers';
 import messages from './messages';
+import PropTypes from 'prop-types';
 
 const columns = [
   { key: 'id', label: 'Cart Id' },
@@ -30,6 +32,8 @@ const columns = [
 
 type TCartsProps = {
   linkToWelcome: string;
+  goToCartDetails: (id: string) => void;
+  children: React.ReactNode;
 };
 
 const Carts = (props: TCartsProps) => {
@@ -81,7 +85,7 @@ const Carts = (props: TCartsProps) => {
                 case 'id':
                   return item.id;
                 case 'price':
-                  return `${item.totalPrice.centAmount} ${item.totalPrice.currencyCode}`;
+                  return `${item.totalPrice.centAmount / 100} ${item.totalPrice.currencyCode}`;
                 case 'state':
                   return item.cartState;
                 case 'shippingMethod':
@@ -95,6 +99,10 @@ const Carts = (props: TCartsProps) => {
             sortedBy={tableSorting.value.key}
             sortDirection={tableSorting.value.order}
             onSortChange={tableSorting.onChange}
+              onRowClick={({ id }) => {
+                props.goToCartDetails(id);
+              }}
+
           />
           <Pagination
             page={page.value}
@@ -106,9 +114,17 @@ const Carts = (props: TCartsProps) => {
           />
         </Spacings.Stack>
       ) : null}
+      <Switch>
+  {props.children}
+</Switch>
+
     </Spacings.Stack>
   );
 };
 Carts.displayName = 'Carts';
+Carts.propTypes = {
+  goToCartDetails: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export default Carts;
